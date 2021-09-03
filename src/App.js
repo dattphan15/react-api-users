@@ -9,6 +9,17 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((json) => {
+        this.setState({
+          isLoaded: true,
+          items: json,
+        });
+      });
+  }
+
   render() {
     return <div className="App"></div>;
   }
